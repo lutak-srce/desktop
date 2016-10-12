@@ -5,5 +5,6 @@
 class desktop::k3b {
 
   package { 'k3b': ensure => present, }
+  package { 'k3b-extras-freeworld': ensure => present, }
 
 }

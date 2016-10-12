@@ -5,7 +5,7 @@
 #
 class desktop::pidgin {
 
-  package { 'pidgin':             ensure => present, }
-  package { 'pidgin-plugin_pack': ensure => present, }
+  package { 'pidgin':     ensure => present, }
+  package { 'pidgin-otr': ensure => present, }
 
 }

@@ -4,6 +4,7 @@
 #
 class desktop::freerdp {
 
+  package { 'freerdp':         ensure => present, }
   package { 'freerdp-plugins': ensure => present, }
 
 }
