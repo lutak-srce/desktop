@@ -6,4 +6,8 @@ class desktop::dm::kdm {
 
   package { 'kdm': ensure => present, }
 
+
+  package { 'kgreeter-plugins': }
+  package { 'libkworkspace':    }
+
 }
