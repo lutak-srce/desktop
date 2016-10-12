@@ -1,0 +1,18 @@
+# This module allows flash plugin to play videos
+# (as from youtube)
+module flash-plugin 1.0;
+
+require {
+	type user_home_t;
+	type mozilla_plugin_t;
+	class file { rename write create unlink };
+	class dir create;
+}
+
+#============= mozilla_plugin_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow mozilla_plugin_t user_home_t:dir create;
+
+#!!!! This avc is allowed in the current policy
+allow mozilla_plugin_t user_home_t:file { rename write create unlink };
