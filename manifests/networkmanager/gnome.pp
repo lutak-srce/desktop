@@ -5,6 +5,17 @@
 #
 class desktop::networkmanager::gnome {
 
-  package { 'NetworkManager-gnome' : ensure => present, }
+  case $::operatingsystemrelease {
+    default: {
+    }
+    /^6.*/: {
+      # CentOS 6.x
+      package { 'NetworkManager-gnome' : ensure => present, }
+    }
+    /^7.*/: {
+      # CentOS 7.x
+      package { 'network-manager-applet' : ensure => present, }
+    }
+  }
 
 }

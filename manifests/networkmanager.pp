@@ -3,7 +3,10 @@
 #
 # This module installs NetworkManager
 #
-class desktop::networkmanager {
+class desktop::networkmanager (
+  $plugins           = [ 'ifcfg-rh', 'keyfile' ],
+  $unmanaged_devices = [],
+  ) {
 
   package { 'NetworkManager': ensure => present, }
 
@@ -12,7 +15,7 @@ class desktop::networkmanager {
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///modules/desktop/networkmanager/NetworkManager.conf',
+    content => template('desktop/networkmanager/NetworkManager.conf.erb'),
     require => Package['NetworkManager'],
   }
 
